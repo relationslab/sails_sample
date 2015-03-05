@@ -9,13 +9,13 @@ module.exports = {
 	// 外部公開API
 	find: function(req, res) {
 		// メタ情報の取得
-		var page = req.headers.page;
+		var id = req.headers.id;
 
-		if (!page) {
+		if (!id) {
 			return res.send(400);
 		}
 
-		this._findArticles({page: page}, function(error, articles) {
+		this._findArticles({id: id}, function(error, articles) {
 			if (error) {
 				return res.send(500);
 			}
@@ -23,10 +23,20 @@ module.exports = {
 			res.send(articles);
 		});
 	},
+
 	// CallbackでJSONを返す内部関数
 	_findArticles: function(data, callback) {
 		Article.find().exec(function(error, articles) {
+			console.log(articles);
 			callback(error, articles);
+		});
+	},
+
+	_findArticleOne: function(data, callback) {
+		console.log(data);
+		Article.findOne(data).exec(function(error, article) {
+			console.log(article);
+			callback(error, article);
 		});
 	}
 };
