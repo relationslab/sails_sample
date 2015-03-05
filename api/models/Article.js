@@ -7,8 +7,10 @@
 
 module.exports = {
 
+  tableName: 'articles',
   attributes: {
-
+    title: 'STRING',
+    body: 'STRING'
   }
 };
 
