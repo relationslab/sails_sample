@@ -26,7 +26,7 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
+  '*': false,
 
   /***************************************************************************
   *                                                                          *
@@ -34,6 +34,10 @@ module.exports.policies = {
   * and its actions                                                          *
   *                                                                          *
   ***************************************************************************/
+  ArticleController: {
+    '*': true
+  }
+
 	// RabbitController: {
 
 		// Apply the `false` policy as the default for all of RabbitController's actions
