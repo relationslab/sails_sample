@@ -12,11 +12,7 @@ module.exports = {
       return res.send(400);
     }
 
-    sails.controllers['api/article']._findArticles({page: page}, function(error, articles) {
-      if (error) {
-        return res.send(500);
-      }
-
+    sails.api('article').find(req, function(err, articles) {
       res.view('homepage', {articles: articles});
     });
   }
