@@ -1,0 +1,18 @@
+<div class="articleList">
+  <% _.each(articles, function (article) { %>
+  <li class="articleList_item">
+    <h1 class="articleList_item--title"><%= article.title%></h1>
+
+    <ul class="articleList_item_tags">
+      <% _.each(article.tags, function (tag) { %>
+      <li class="articleList_item_tags_tag"><%= tag.name %></li>
+      <% }) %>
+    </ul>
+
+    <div class="articleList_item_body">
+      <span class="articleList_item_body--text"><%= article.body %></span>　
+      <a href="/article/<%= article.id%>">続きを読む→</a>
+    </div>
+  </li>
+  <% }) %>
+</ul>
