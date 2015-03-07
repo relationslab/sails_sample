@@ -1,7 +1,9 @@
 <ul class="articleList">
   <% _.each(articles, function (article) { %>
   <li class="articleList_item">
-    <h1 class="articleList_item--title"><%= article.title%></h1>
+    <h1 class="articleList_item--title">
+      <a class="articleList_item--title_link" href="/article/<%= article.id%>"><%= article.title%></a>
+    </h1>
 
     <ul class="articleList_item_tags">
       <% _.each(article.tags, function (tag) { %>
@@ -11,7 +13,7 @@
 
     <div class="articleList_item_body">
       <span class="articleList_item_body--text"><%= article.body %></span>　
-      <a href="/article/<%= article.id%>">続きを読む→</a>
+      <a class="articleList_item_body--link" href="/article/<%= article.id%>">続きを読む→</a>
     </div>
   </li>
   <% }) %>
