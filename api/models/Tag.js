@@ -7,8 +7,13 @@
 
 module.exports = {
 
+  tableName: 'tags',
   attributes: {
-
+    name: 'STRING',
+    article_id: {
+      model: 'article'
+    }
   }
+
 };
 

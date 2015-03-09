@@ -10,7 +10,12 @@ module.exports = {
   tableName: 'articles',
   attributes: {
     title: 'STRING',
-    body: 'STRING'
+    body: 'STRING',
+    tags: {
+      collection: 'tag',
+      via: 'article_id'
+    }
   }
+
 };
 
