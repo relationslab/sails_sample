@@ -1,0 +1,61 @@
+
+/*
+.comment
+  .commentList
+    .commentItem
+      .photo
+      .name
+      .body
+      .time
+      .likeLink
+      .likeImage
+      .likeCount
+  .commentForm
+    .photo
+    .input
+    .submit
+*/
+
+.c_comment{
+  padding: 16px;
+  font-size: 1em;
+  background-color: #eee;
+}
+
+/* commentList block */
+.c_commentList{
+  list-style-type: none;
+}
+
+.c_commentItem{
+  margin-bottom: 16px;
+}
+
+.c_commentItem_body{
+  font-size: 14px;
+}
+
+
+/* form block */
+.c_commentForm{
+  width: 100%;
+  background-color: #eee;
+}
+
+.c_commentForm_input{
+  width: 100%;
+  font-size: 14px;
+  line-height: 150%;
+}
+
+.c_commentForm_submit{
+  width: 160px;
+  height: 40px;
+  margin-left: auto;
+  margin-right: 0;
+  font-size: 16px;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  background-color: #f93;
+}

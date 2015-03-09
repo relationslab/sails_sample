@@ -1,5 +1,17 @@
 
-/* articleList items */
+/*
+.articleList
+  .items
+    .title
+    .tags
+      .tag
+    .body
+      .text
+      .link
+*/
+
+
+/* articleList items block */
 .articleList{
   width: 480px;
   list-style-type: none;
@@ -11,10 +23,7 @@
   width: 480px;
 }
 
-
-
-/* title */
-.articleList_item--title{
+.articleList_title{
   height: 32px;
   overflow: hidden;
   white-space: nowrap;
@@ -25,41 +34,29 @@
 
 
 
-/* tags */
-.articleList_item_tags{
+/* tags block */
+.articleList_tags{
   width: 480px;
   height: 32px;
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  font-size: 14px;
 }
 
-.articleList_item_tags_tag{
-  float: left;
+.articleList_tags_tag{
   width: 128px;
   height: 24px;
-  margin: 0;
-  padding: 0;
   margin-right: 32px;
   line-height: 24px;
-  list-style-type: none;
-  color: #000;
-  background: #fed;
-  font-size: 14px;
-  text-align: center;
 }
 
 
 
-/* body */
-.articleList_item_body{
+/* body block */
+.articleList_body{
   display: block;
   width: 480px;
   height: 128px;
 }
 
-.articleList_item_body--text{
+.articleList_body_text{
   display: block;
   width: 480px;
   height: 80px;
@@ -67,7 +64,7 @@
   text-overflow: ellipsis;
 }
 
-.articleList_item_body--link{
+.articleList_body_link{
   display: block;
   width: 480px;
   height: 16px;

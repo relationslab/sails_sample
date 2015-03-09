@@ -70,8 +70,8 @@ module.exports = {
         { id: 2, name: "anotherTag", article_id: 1 }
       ],
       comments: [
-        { id: 1, body: "Hello", article_id: 1 },
-        { id: 2, body: "ないす記事ですね！", article_id: 1 }
+        { id: 1, body: "Hello, Hello, Hello, Hello, Hello, Hello, Hello, Hello, Hello, Hello, Hello, Hello, Hello, Hello, ", article_id: 1 },
+        { id: 2, body: "ないす記事ですね！　テストのコメントです　テストのコメントです　テストのコメントです　テストのコメントです　テストのコメントです", article_id: 1 }
       ]
     }});
   }

@@ -1,0 +1,73 @@
+
+/*
+.article
+  .title
+  .tags
+    .tag
+  .body
+  .commentForm
+    .comments
+      .comment
+    .input
+    .submit
+
+*/
+
+.article{
+  width: 720px;
+  font-size: 14px;
+}
+
+.article_title{
+  width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.article_body{
+  width: 100%;
+}
+
+/* tags block */
+.article_tagList{
+  width: 100%;
+  height: 32px;
+}
+
+.article_tagItem{
+  width: 128px;
+  height: 24px;
+  margin-right: 32px;
+  line-height: 24px;
+}
+
+
+/* commentForm block */
+.article_commentForm{
+  margin-top: 32px;
+}
+
+.article_commentForm_input{
+
+}
+
+.article_commentForm_submit{
+
+}
+
+
+/* comments block */
+.article_comments{
+  margin: 16px;
+  padding: 0;
+  list-style-type: none;
+  font-size: 14px;
+}
+
+.article_comment{
+  float: left;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  font-size: 14px;
+}

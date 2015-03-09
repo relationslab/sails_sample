@@ -1,24 +1,26 @@
 <div class="article">
-  <h1 class="article--title"><%= article.title%></h1>
+  <h1 class="article_title"><%= article.title%></h1>
 
-  <ul class="article_tags">
+  <ul class="article_tagList c_tagList">
     <% _.each(article.tags, function (tag) { %>
-    <li class="article_tags_tag"><%= tag.name %></li>
+    <li class="article_tagItem c_tagItem"><%= tag.name %></li>
     <% }) %>
   </ul>
 
   <div class="article_body">
     <%= article.body %>
   </div>
-  <div class="article_comment">
+  <div class="article_commentForm c_comment">
 
-    <ul class="article_comment_comments">
+    <ul class="article_comments c_commentList">
       <% _.each(article.comments, function (comment) { %>
-      <li class="article_comment_comments_body"><%= comment.body %></li>
+      <li class="article_comment c_commentItem"><%= comment.body %></li>
       <% }) %>
     </ul>
 
-    <textarea class="article_comment_input"></textarea>
-    <div class="article_comment_submit widget_button">コメントする</div>
+    <div class="article_commentForm c_commentForm">
+      <textarea class="article_commentForm_input c_commentForm_input"></textarea>
+      <div class="article_commentForm_submit c_commentForm_submit widget_button">コメントする</div>
+    </div>
   </div>
 </div>
