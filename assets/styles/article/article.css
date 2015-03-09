@@ -15,6 +15,7 @@
 
 .article{
   width: 720px;
+  margin: 0 auto;
   font-size: 14px;
 }
 
@@ -58,16 +59,12 @@
 
 /* comments block */
 .article_comments{
-  margin: 16px;
   padding: 0;
   list-style-type: none;
-  font-size: 14px;
 }
 
 .article_comment{
-  float: left;
   margin: 0;
   padding: 0;
-  list-style-type: none;
   font-size: 14px;
 }

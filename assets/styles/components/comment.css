@@ -28,7 +28,8 @@
 }
 
 .c_commentItem{
-  margin-bottom: 16px;
+  margin: 0 0 1em auto;
+  border-bottom: 1px solid #ccc;
 }
 
 .c_commentItem_body{

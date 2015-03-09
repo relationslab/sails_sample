@@ -1,10 +1,6 @@
 {
-  "name": "sails_sample",
-  "private": true,
-  "version": "0.0.0",
-  "description": "a Sails application",
-  "keywords": [],
   "dependencies": {
+    "grunt-bower-task": "^0.3.4",
     "ejs": "~0.8.4",
     "grunt": "0.4.2",
     "grunt-contrib-clean": "~0.5.0",
@@ -22,8 +18,14 @@
     "rc": "~0.5.0",
     "sails": "~0.11.0",
     "sails-disk": "~0.10.0",
+    "sails-generate-bower": "0.0.2",
     "sails-mysql": "^0.10.11"
   },
+  "name": "sails_sample",
+  "private": true,
+  "version": "0.0.0",
+  "description": "a Sails application",
+  "keywords": [],
   "scripts": {
     "start": "node app.js",
     "debug": "node debug app.js"
