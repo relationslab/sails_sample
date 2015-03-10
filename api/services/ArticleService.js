@@ -12,22 +12,11 @@ module.exports = {
   **/
   findArticles: function(options, callback) {
 
-    var where = {}, page = 1, limit = 10, sort = 'created DESC', comments = false;
-    if(options.where){
-      where = options.where;
-    }
-    if(options.page){
-      page = options.page;
-    }
-    if(options.limit){
-      limit = options.limit;
-    }
-    if(options.sort){
-      sort = options.sort;
-    }
-    if(options.comments){
-      comments = options.comments;
-    }
+    var where = options.where || {};
+    var page = options.page || 1;
+    var limit = options.limit || 10;
+    var sort = options.sort || 'created DESC';
+    var comments = options.comments || false;
 
     var statement = Article.find().where(where).populate('tags').paginate({page: page, limit: limit, sort: sort});
 
@@ -51,19 +40,10 @@ module.exports = {
   **/
   findArticlesByTag: function(options, callback) {
 
-    var where = {}, page = 1, limit = 10, sort = 'name DESC';
-    if(options.where){
-      where = options.where;
-    }
-    if(options.page){
-      page = options.page;
-    }
-    if(options.limit){
-      limit = options.limit;
-    }
-    if(options.sort){
-      sort = options.sort;
-    }
+    var where = options.where || {};
+    var page = options.page || 1;
+    var limit = options.limit || 10;
+    var sort = options.sort || 'name DESC';
 
     Tag.find().where(where).populate('articles').paginate({page: page, limit: limit, sort: sort}).exec(function(error, tags) {
       callback(error, tags);
@@ -82,19 +62,10 @@ module.exports = {
   **/
   findComments: function(options, callback) {
 
-    var where = {}, page = 1, limit = 10, sort = 'created DESC';
-    if(options.where){
-      where = options.where;
-    }
-    if(options.page){
-      page = options.page;
-    }
-    if(options.limit){
-      limit = options.limit;
-    }
-    if(options.sort){
-      sort = options.sort;
-    }
+    var where = options.where || {};
+    var page = options.page || 1;
+    var limit = options.limit || 10;
+    var sort = options.sort || 'created DESC';
 
     Comment.find().where(where).paginate({page: page, limit: limit, sort: sort}).exec(function(error, comments) {
       callback(error, comments);
