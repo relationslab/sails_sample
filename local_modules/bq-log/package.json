@@ -1,9 +1,8 @@
 {
-  "name": "utc-time",
+  "name": "bq-log",
   "version": "1.0.0",
-  "description": "get UTC Time",
+  "description": "Log module for Google Big Query",
   "main": "index.js",
-  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -10,8 +10,7 @@
  * http://sailsjs.org/#/documentation/concepts/Logging
  */
 
-var winston = require('winston');
-var utcTime = require('utc-time');
+var bqlog = require('bq-log');
 
 module.exports.log = {
 
@@ -27,22 +26,12 @@ module.exports.log = {
   *                                                                          *
   ***************************************************************************/
 
-  custom: new winston.Logger({
-    transports: [
-      new (winston.transports.File)({
-        level: 'debug',
-        filename: './.tmp/test.log',
-        json: false,
-        formatter: function(args) {
-          var header = utcTime.now() + " " + args.level.toUpperCase();
-          var app = '<' + 'SELECK' + '-' + 'web' + 'v1.0' + '>';
-          var host = '<' + 'hostname' + '>';
-          var id = '<' + 'logid' + '>';
-
-          return header + '-' + app + host + id + args.message;
-        }
-      })
-    ]
+  custom: bqlog({
+    system: 'SELECK',
+    subSystem: 'app',
+    version: 'v0.1',
+    host: 'localhost',
+    path: './.tmp/test.log'
   })
 
   // level: 'info'
