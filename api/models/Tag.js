@@ -9,9 +9,16 @@ module.exports = {
 
   tableName: 'tags',
   attributes: {
-    name: 'STRING',
-    article_id: {
-      model: 'article'
+    id: {
+      primaryKey: true,
+      autoIncrement: true,
+      type: 'integer'
+    },
+    name: 'string',
+    articles: {
+      collection: 'article',
+      via: 'tag_articles',
+      through: 'articletag'
     }
   }
 
