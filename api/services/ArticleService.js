@@ -10,21 +10,28 @@ module.exports = {
   *   comments: コメント有無 例: true
   * }
   **/
-  findArticles: function(options, callback) {
+  findArticles: function(options) {
 
-    var where = options.where || {};
-    var page = options.page || 1;
-    var limit = options.limit || 10;
-    var sort = options.sort || 'created DESC';
-    var comments = options.comments || false;
+    var Promise = require("bluebird"); // ここでrequireしてて良いのか…？
+    return new Promise(function (resolve, reject){
+      var where = options.where || {};
+      var page = options.page || 1;
+      var limit = options.limit || 10;
+      var sort = options.sort || 'createdAt DESC';
+      var comments = options.comments || false;
 
-    var statement = Article.find().where(where).populate('tags').paginate({page: page, limit: limit, sort: sort});
+      var find = Article.find().where(where).sort(sort).paginate({page: page, limit: limit}).populate('tags');
 
-    if(comments){
-      statement = statement.populate('comments');
-    }
-    statement.exec(function(error, articles) {
-      callback(error, articles);
+      if(comments){
+        find = find.populate('comments');
+      }
+
+      find.then(function(articles){
+        resolve(articles);
+      }).catch(function(error){
+        reject(error);
+      });
+
     });
 
   },
@@ -40,13 +47,19 @@ module.exports = {
   **/
   findArticlesByTag: function(options, callback) {
 
-    var where = options.where || {};
-    var page = options.page || 1;
-    var limit = options.limit || 10;
-    var sort = options.sort || 'name DESC';
+    var Promise = require("bluebird");
+    return new Promise(function (resolve, reject){
 
-    Tag.find().where(where).populate('articles').paginate({page: page, limit: limit, sort: sort}).exec(function(error, tags) {
-      callback(error, tags);
+      var where = options.where || {};
+      var page = options.page || 1;
+      var limit = options.limit || 10;
+      var sort = options.sort || 'name DESC';
+
+      Tag.find().where(where).sort(sort).populate('articles').paginate({page: page, limit: limit}).then(function(tags){
+        resolve(tags);
+      }).catch(function(error){
+        reject(error);
+      });
     });
 
   },
@@ -62,13 +75,20 @@ module.exports = {
   **/
   findComments: function(options, callback) {
 
-    var where = options.where || {};
-    var page = options.page || 1;
-    var limit = options.limit || 10;
-    var sort = options.sort || 'created DESC';
+    var Promise = require("bluebird");
+    return new Promise(function (resolve, reject){
 
-    Comment.find().where(where).paginate({page: page, limit: limit, sort: sort}).exec(function(error, comments) {
-      callback(error, comments);
+      var where = options.where || {};
+      var page = options.page || 1;
+      var limit = options.limit || 10;
+      var sort = options.sort || 'createdAt DESC';
+
+      Comment.find().where(where).sort(sort).paginate({page: page, limit: limit}).then(function(comments){
+        resolve(comments);
+      }).catch(function(error){
+        reject(error);
+      });
+
     });
 
   },
