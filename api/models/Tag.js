@@ -7,8 +7,20 @@
 
 module.exports = {
 
+  tableName: 'tags',
   attributes: {
-
+    id: {
+      primaryKey: true,
+      autoIncrement: true,
+      type: 'integer'
+    },
+    name: 'string',
+    articles: {
+      collection: 'article',
+      via: 'tag_articles',
+      through: 'articletag'
+    }
   }
+
 };
 
