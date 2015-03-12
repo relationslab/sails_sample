@@ -15,18 +15,12 @@ module.exports = {
 			return res.send(400);
 		}
 
-		this._findArticles({page: page}, function(error, articles) {
+		Article.find().exec(function(error, articles) {
 			if (error) {
 				return res.send(500);
 			}
 
 			res.send(articles);
-		});
-	},
-	// CallbackでJSONを返す内部関数
-	_findArticles: function(data, callback) {
-		Article.find().exec(function(error, articles) {
-			callback(error, articles);
 		});
 	}
 };
