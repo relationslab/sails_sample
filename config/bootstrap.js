@@ -11,6 +11,32 @@
 
 module.exports.bootstrap = function(cb) {
 
+  sails.api = function(controller) {
+    var func = {};
+
+    var controller = sails.controllers['api/' + controller];
+
+    for (var key in controller) {
+      if (typeof controller[key] === 'function') {
+        func[key] = function(key) {
+          return function (req, callback) {
+            controller[key](req, {
+              send: function(result) {
+                if (typeof result !== 'object') {
+                  return callback(result, null);
+                }
+
+                callback(null, result);
+              }
+            });
+          };
+        }(key);
+      }
+    }
+
+    return func;
+  };
+
   // It's very important to trigger this callback method when you are finished
   // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
   cb();

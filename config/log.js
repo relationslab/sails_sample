@@ -10,6 +10,8 @@
  * http://sailsjs.org/#/documentation/concepts/Logging
  */
 
+var bqlog = require('bq-log');
+
 module.exports.log = {
 
   /***************************************************************************
@@ -23,6 +25,14 @@ module.exports.log = {
   * You may also set the level to "silent" to suppress all logs.             *
   *                                                                          *
   ***************************************************************************/
+
+  custom: bqlog({
+    system: 'SELECK',
+    subSystem: 'app',
+    version: 'v0.1',
+    host: 'localhost',
+    path: './.tmp/test.log'
+  })
 
   // level: 'info'
 
