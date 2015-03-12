@@ -13,6 +13,7 @@ module.exports = {
   * }
   **/
   findArticles: function(options) {
+    options = options || {};
 
     return new Promise(function (resolve, reject){
       var where = options.where || {};
