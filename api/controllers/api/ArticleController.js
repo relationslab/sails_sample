@@ -9,18 +9,16 @@ module.exports = {
 	// 外部公開API
 	find: function(req, res) {
 		// メタ情報の取得
-		var page = req.headers.page;
+		var id = req.headers.id;
 
-		if (!page) {
+		if (!id) {
 			return res.send(400);
 		}
 
-		Article.find().exec(function(error, articles) {
-			if (error) {
-				return res.send(500);
-			}
-
+		ArticleService.findArticles().then(function(articles) {
 			res.send(articles);
+		}).catch(function(error){
+			res.send(500);
 		});
 	}
 };

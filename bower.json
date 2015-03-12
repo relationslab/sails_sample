@@ -1,0 +1,16 @@
+{
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize.css": "~3.0.2"
+  },
+  "name": "sails_sample",
+  "version": "0.0.0",
+  "author": "vagrant",
+  "private": true
+}

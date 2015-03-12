@@ -1,0 +1,42 @@
+
+/**---------------------------------------------------------
+  Base: 共通仕様
+*---------------------------------------------------------*/
+
+/* width/heightは、border, paddingを含んだ値にする */
+* {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+         -o-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+
+/* ブロックリセット */
+div, p{
+  margin: 0;
+  padding: 0;
+}
+
+
+/* List系はマーカなしを基本にする */
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+
+/* clearfix: floatをクリアし、heightも担保する */
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+.cf:after {
+    clear: both;
+}
+.cf {
+    *zoom: 1;
+}

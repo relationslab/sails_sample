@@ -1,0 +1,15 @@
+
+/* tags block */
+.c_tagList{
+  list-style-type: none;
+}
+
+.c_tagItem{
+  float: left;
+  margin-right: 32px;
+  color: #000;
+  background: #fed;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+}

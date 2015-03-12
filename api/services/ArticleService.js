@@ -1,3 +1,5 @@
+var Promise = require("bluebird");
+
 module.exports = {
 
   /**
@@ -12,7 +14,6 @@ module.exports = {
   **/
   findArticles: function(options) {
 
-    var Promise = require("bluebird"); // ここでrequireしてて良いのか…？
     return new Promise(function (resolve, reject){
       var where = options.where || {};
       var page = options.page || 1;
@@ -47,7 +48,6 @@ module.exports = {
   **/
   findArticlesByTag: function(options, callback) {
 
-    var Promise = require("bluebird");
     return new Promise(function (resolve, reject){
 
       var where = options.where || {};
@@ -75,7 +75,6 @@ module.exports = {
   **/
   findComments: function(options, callback) {
 
-    var Promise = require("bluebird");
     return new Promise(function (resolve, reject){
 
       var where = options.where || {};

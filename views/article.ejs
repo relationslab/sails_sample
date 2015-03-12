@@ -1,0 +1,32 @@
+<div class="article">
+  <h1 class="article_title"><%= article.title%></h1>
+
+  <ul class="c_tagList article_tagList">
+    <% _.each(article.tags, function (tag) { %>
+    <li class="c_tagItem article_tagItem"><%= tag.name %></li>
+    <% }) %>
+  </ul>
+
+  <div class="article_body">
+    <%= article.body %>
+  </div>
+
+  <div class="c_comment article_comment">
+    <ul class="c_commentList article_commentList">
+      <% _.each(article.comments, function (comment) { %>
+      <li class="c_commentItem article_commentItem cf">
+        <div class="c_commentItem_picture"></div>
+        <div class="c_commentItem_body"><%= comment.body %></div>
+      </li>
+      <% }) %>
+    </ul>
+
+    <div class="c_commentForm article_commentForm">
+      <div class="c_commentForm_input cf">
+        <div class="c_commentForm_input_picture"></div>
+        <div class="c_commentForm_input_textDiv"><textarea class="c_commentForm_input_textDiv_text"></textarea></div>
+      </div>
+      <div class="c_commentForm_submit article_commentForm_submit">コメントする</div>
+    </div>
+  </div>
+</div>
