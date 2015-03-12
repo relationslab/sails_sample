@@ -7,6 +7,7 @@ module.exports = function(opt) {
   var host = opt.host || "unknown";
   var level = opt.level || "debug";
   var path = opt.path || './.tmp/test.log';
+  var toConsole = opt.toConsole || true;
 
   var now = function() {
     var zeroPadding = function(target) {
@@ -30,7 +31,11 @@ module.exports = function(opt) {
         level: level,
         filename: path,
         json: false,
-        formatter: function(args, hoge) {
+        formatter: function(args) {
+          if (toConsole) {
+            console.log(args.message);
+          }
+          
           var header = now() + " " + args.level.toUpperCase();
           var app = '<' + system + '-' + subSystem + " " + version + '>';
 
