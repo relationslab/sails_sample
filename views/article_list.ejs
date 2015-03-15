@@ -1,25 +1,5 @@
-<ul class="articleList articleList_list">
-  <% _.each(articles, function (article) { %>
-  <li class="articleList_item">
-    <h1 class="articleList_title">
-      <a class="articleList_title_link" href="/article/<%= article.id%>"><%= article.title%></a>
-    </h1>
 
-    <ul class="c_tagList articleList_tagList">
-      <% _.each(article.tags, function (tag) { %>
-      <li class="c_tagItem articleList_tagItem"><%= tag.name %></li>
-      <% }) %>
-    </ul>
-
-    <div class="articleList_body">
-      <p class="articleList_body_text"><%= article.body %></p>　
-      <a class="articleList_body_link" href="/article/<%= article.id%>">続きを読む→</a>
-    </div>
-  </li>
-  <% }) %>
-</ul>
+<div id="articleList">
+</div>
 
 <script src="js/main.js"></script>
-
-<div id="testList">
-</div>

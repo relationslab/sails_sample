@@ -1,4 +1,4 @@
 var React = require('react');
-var TestList = require('./testList.jsx');
+var TestList = require('./article/articleList.jsx');
 
-React.render(<TestList />, document.getElementById('testList'));
+React.render(<TestList />, document.getElementById('articleList'));
