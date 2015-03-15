@@ -1,4 +1,6 @@
 var React = require('react');
-var TestList = require('./article/articleList.jsx');
+var ArticleList = require('./article/articleList.jsx');
 
-React.render(<TestList />, document.getElementById('articleList'));
+React.render(<ArticleList fetch="/api/article/find"/>
+  , document.getElementById('articleList')
+);

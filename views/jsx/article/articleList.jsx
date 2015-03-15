@@ -1,15 +1,33 @@
 var React = require('react');
+var Fetch = require('whatwg-fetch');
 
 var ArticleList = React.createClass({
   getInitialState : function() {
     return {
+/*
       articles: [
         {id:1, title:"masahiko kubara", body:"test summary", tags:[]},
         {id:2, title:"takayuki imanishi", body:"test summary test summary ", tags:[]},
         {id:3, title:"keita moromizato", body:"test summary test summary test summary", tags:[]},
         {id:4, title:"hirofumi ootori", body:"test summary test summary test summary test summary", tags:[]}
       ]
+      */
+      articles: []
     };
+  },
+
+  componentDidMount : function() {
+    var this_ = this;
+    fetch(this.props.fetch).
+      then(function(res){
+        return res.json();
+      }).then(function(json){
+        this_.setState({
+          articles: json
+        });
+      }).catch(function(e){
+        console.log(e);
+      });
   },
 
   render: function() {
