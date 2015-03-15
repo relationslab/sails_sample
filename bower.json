@@ -12,6 +12,5 @@
   "name": "sails_sample",
   "version": "0.0.0",
   "author": "vagrant",
-  "private": true,
-  "devDependencies": {}
+  "private": true
 }
