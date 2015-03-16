@@ -1,25 +1,19 @@
 var React = require('react');
 var Fetch = require('whatwg-fetch');
+var TagList = require('../tag/tagList.jsx');
+
 
 var ArticleList = React.createClass({
   getInitialState : function() {
     return {
-/*
-      articles: [
-        {id:1, title:"masahiko kubara", body:"test summary", tags:[]},
-        {id:2, title:"takayuki imanishi", body:"test summary test summary ", tags:[]},
-        {id:3, title:"keita moromizato", body:"test summary test summary test summary", tags:[]},
-        {id:4, title:"hirofumi ootori", body:"test summary test summary test summary test summary", tags:[]}
-      ]
-      */
       articles: []
     };
   },
 
   componentDidMount : function() {
     var this_ = this;
-    fetch(this.props.fetch).
-      then(function(res){
+    fetch(this.props.fetch)
+      .then(function(res){
         return res.json();
       }).then(function(json){
         this_.setState({
@@ -57,9 +51,7 @@ var ArticleListItem = React.createClass({
           <a className="articleList_title_link" href={"/article/"+this.props.article.id}>{this.props.article.title}</a>
         </h1>
 
-        <ul className="c_tagList articleList_tagList">
-          <li className="c_tagItem articleList_tagItem">dummy</li>
-        </ul>
+        <TagList tags={this.props.article.tags} />
 
         <div className="articleList_body">
           <p className="articleList_body_text">{this.props.article.body}</p>　
@@ -69,5 +61,7 @@ var ArticleListItem = React.createClass({
     );
   }
 });
+
+
 
 module.exports = ArticleList;

@@ -20047,26 +20047,20 @@ React.render(React.createElement(ArticleList, {fetch: "/api/article/find"})
 },{"./article/articleList.jsx":159,"react":156}],159:[function(require,module,exports){
 var React = require('react');
 var Fetch = require('whatwg-fetch');
+var TagList = require('../tag/tagList.jsx');
+
 
 var ArticleList = React.createClass({displayName: "ArticleList",
   getInitialState : function() {
     return {
-/*
-      articles: [
-        {id:1, title:"masahiko kubara", body:"test summary", tags:[]},
-        {id:2, title:"takayuki imanishi", body:"test summary test summary ", tags:[]},
-        {id:3, title:"keita moromizato", body:"test summary test summary test summary", tags:[]},
-        {id:4, title:"hirofumi ootori", body:"test summary test summary test summary test summary", tags:[]}
-      ]
-      */
       articles: []
     };
   },
 
   componentDidMount : function() {
     var this_ = this;
-    fetch(this.props.fetch).
-      then(function(res){
+    fetch(this.props.fetch)
+      .then(function(res){
         return res.json();
       }).then(function(json){
         this_.setState({
@@ -20104,9 +20098,7 @@ var ArticleListItem = React.createClass({displayName: "ArticleListItem",
           React.createElement("a", {className: "articleList_title_link", href: "/article/"+this.props.article.id}, this.props.article.title)
         ), 
 
-        React.createElement("ul", {className: "c_tagList articleList_tagList"}, 
-          React.createElement("li", {className: "c_tagItem articleList_tagItem"}, "dummy")
-        ), 
+        React.createElement(TagList, {tags: this.props.article.tags}), 
 
         React.createElement("div", {className: "articleList_body"}, 
           React.createElement("p", {className: "articleList_body_text"}, this.props.article.body), "　", 
@@ -20117,7 +20109,52 @@ var ArticleListItem = React.createClass({displayName: "ArticleListItem",
   }
 });
 
+
+
 module.exports = ArticleList;
 
 
-},{"react":156,"whatwg-fetch":157}]},{},[158]);
+},{"../tag/tagList.jsx":160,"react":156,"whatwg-fetch":157}],160:[function(require,module,exports){
+var React = require('react');
+
+
+var TagList = React.createClass({displayName: "TagList",
+  getInitialState : function() {
+    return {
+      tags: []
+    };
+  },
+
+  render: function() {
+    var list = this.props.tags.map(function(tag) {
+      return React.createElement("li", {key: tag.id, className: "c_tagItem articleList_tagItem"}, React.createElement(TagListItem, {tag: tag}));
+    });
+
+    return React.createElement("ul", {className: "c_tagList articleList_tagList"}, list);
+  }
+});
+
+
+var TagListItem = React.createClass({displayName: "TagListItem",
+  propTypes: {
+    tag: React.PropTypes.shape({
+      id: React.PropTypes.number.isRequired,
+      name: React.PropTypes.string
+    })
+  },
+
+  render: function() {
+    return (
+      React.createElement("div", null, 
+        this.props.tag.name
+      )
+    );
+  }
+});
+
+
+
+module.exports = TagList;
+
+
+},{"react":156}]},{},[158]);
